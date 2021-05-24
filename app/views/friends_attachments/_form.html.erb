@@ -1,0 +1,27 @@
+<%= form_for(friends_attachment) do |f| %>
+  <% if friends_attachment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(friends_attachment.errors.count, "error") %> prohibited this friends_attachment from being saved:</h2>
+
+      <ul>
+      <% friends_attachment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :friend_id %>
+    <%= f.number_field :friend_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.text_field :avatar %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

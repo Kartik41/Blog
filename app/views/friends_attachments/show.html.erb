@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Friend:</strong>
+  <%= @friends_attachment.friend_id %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @friends_attachment.avatar %>
+</p>
+
+<%= link_to 'Edit', edit_friends_attachment_path(@friends_attachment) %> |
+<%= link_to 'Back', friends_attachments_path %>

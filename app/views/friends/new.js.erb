@@ -1,0 +1,6 @@
+jQuery('.create-modal-body').html("<%= escape_javascript render(:partial => 'create_friend_modal', :locals => { :obj => @friend }) %>");
+jQuery.noConflict();
+jQuery('#myModal123').modal('show');
+
+
+

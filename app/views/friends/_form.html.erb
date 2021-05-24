@@ -1,0 +1,65 @@
+
+
+<%= form_for(@friend, :html => { :multipart => true }, :remote => true)  do |f| %>
+  <% if @friend.errors.any? %>
+    <div id="error_explanation">
+      
+    <h2><%= pluralize(@friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+      <ul>
+      <% @friend.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :first_name, class: "form-label" %>
+    <%= f.text_field :first_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :last_name, class: "form-label" %>
+    <%= f.text_field :last_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :email, class: "form-label" %>
+    <%= f.text_field :email, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :phone, class: "form-label",  :maxlength => 12 %>
+    <%= f.text_field :phone, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :twitter, class: "form-label" %>
+    <%= f.text_field :twitter, class: "form-control", required: true %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :age, class: "form-label" %>
+    <%= f.number_field :age, max: 100, min: 1, class: "form-control", required: true %>
+    
+    
+  </div>
+  <div class="mb-3">
+    <%= f.label :gender, class: "form-label" %>
+    
+    <%= f.select :gender, ["M","F","Others"], class: "form-control"%>
+  </div>
+  #<%= f.fields_for :friends_attachments do |p| %>
+   <!-- <div class="mb-3">
+      #<%= p.label :avatar %><br>
+     # <%= p.file_field :avatar, :multiple => true, name:     "friends_attachments[avatar][]",  class: "form-control", required: true %>
+    </div> -->
+  #<% end %>
+ 
+
+  <div class="mb-3">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
+<% end %>
+
+
+

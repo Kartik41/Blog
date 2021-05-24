@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Friends Attachments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Friend</th>
+      <th>Avatar</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends_attachments.each do |friends_attachment| %>
+      <tr>
+        <td><%= friends_attachment.friend_id %></td>
+        <td><%= friends_attachment.avatar %></td>
+        <td><%= link_to 'Show', friends_attachment %></td>
+        <td><%= link_to 'Edit', edit_friends_attachment_path(friends_attachment) %></td>
+        <td><%= link_to 'Destroy', friends_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Friends Attachment', new_friends_attachment_path %>
